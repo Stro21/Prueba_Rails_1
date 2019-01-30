@@ -1,5 +1,9 @@
 class TodosController < ApplicationController
 	def index
-		@todos = ToDos.all
+		@todos = ToDo.all
+	end
+
+	def new
+		@todo = ToDo.new
 	end
 end

@@ -6,12 +6,15 @@ class TodosController < ApplicationController
 	def new
 		@todo = Todo.new
 	end
+
 	def create
-		@todos = Todo.new
-		link_to '/todos', todos_path
+		@todo = Todo.create(todo_params)
+		@todo.save
+		redirect_to todos_path		
 	end
-	private
+private
+
 	def todo_params
-		
+		params.require(:todo).permit(:description, :completed)
 	end
 end
